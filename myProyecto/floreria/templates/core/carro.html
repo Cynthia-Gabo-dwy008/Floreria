@@ -1,0 +1,88 @@
+{% extends "core/base.html" %}
+
+{% block titulo %}
+Florería petalos
+{% endblock titulo %}
+
+{% load static %}
+
+{% block contenido %}
+
+<center>
+    <div class="section">
+        <div class="container">
+            <div class="section section-card-color">
+                <div class="container">
+                    <div class="row">
+                        <div class="container">
+                            <br>
+                            <br>
+                            <div class="card">
+                                <div class="card-header bg-ligth text-light"
+                                    style="background-color: #beebe9; height: 50px;"></div>
+                                <div class="card-body">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th> </th>
+                                                <th>Nombre</th>
+                                                <th> </th>
+                                                <th>Numero</th>
+                                                <th class="text-center">Valor</th>
+                                                <th> </th>
+                                                <th> </th>
+                                                <th class="text-center">Total</th>
+                                                <th> </th>
+                                                <th> </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            {% for l in x %}
+                                            <tr>
+                                                <td><img src="{{ f.fotografia.url }}" /> </td>
+                                                <td><strong>{{l.nombre}}</strong>
+                                                    <h6><small>{{l.descripcion}}</small></h6>
+                                                </td>
+                                                <td> </td>
+                                                <td>{{l.cantidad}}</td>
+                                                <td class="text-center">{{l.valor}}</td>
+                                                <td> </td>
+                                                <td> </td>
+                                                <td class="text-center">{{l.total}}</td>
+                                                <td> </td>
+                                                <td>
+                                                    <input type="button" class="btn btn-success" value="+"
+                                                        onclick="javascript:location.href='{% url 'carro_mas'   l.nombre %}'">
+                                                    <input type="button" class="btn btn-danger" value="-"
+                                                        onclick="javascript:location.href='{% url 'carro_menos' l.nombre %}'">
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td colspan="3" class="text-center"><strong>Total</strong></td>
+                                                <td class="text-center"><strong>{{total}}</strong></td>
+                                                <td> </td>
+                                                <td>
+                                                    <input type="button" class="btn btn-success" value="Grabar Carro"
+                                                        onclick="javascript:location.href='{% url 'grabar_carro' %}'">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</center>
+{% endblock contenido %}

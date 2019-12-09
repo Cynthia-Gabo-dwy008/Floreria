@@ -1,0 +1,62 @@
+{% extends "core/base.html" %}
+
+{% block titulo %}
+Florería petalos
+{% endblock titulo %}
+
+{% load static %}
+
+{% block contenido %}
+<div class="section">
+    <div class="container">
+        <div class="section section-card-blog">
+            <div class="container">
+                <div class="row" style="height: 180px;">
+                    <div class="letra-areas">
+                        <h2>¡Sobre Nosotros!</h2>
+                        <div class="separator separator-danger">✻</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section section-card-color">
+            <div class="container">
+                <div class="row">
+                    <center>
+                        <div class="arreglos">
+                            <img src="{% static 'core/img/logo-floreria.png' %}">
+                            <p class="arreglo">Somos parte de una pequeña empresa pero con grandes metas, todo comenzo
+                                cuando nuestro profesor nos entrego el proyecto florería y aquí estamos, cada día
+                                arreglando los cagazos y agregando algo nuevo xD.
+                            </p>
+                        </div>
+
+                        <br>
+
+                        <div class="row justify-content-center">
+                            <div class="col-4">
+
+                                <img src="{% static 'core/img/creador-hombre.png' %}">
+                                <h4 class="nombre">Gabriel Díaz</h4>
+                                <p class="nombre-2">Desarrollador web</p>
+                            </div>
+
+                            <div class="col-4">
+
+                                <img src="{% static 'core/img/creador-mu.png' %}">
+                                <h4 class="nombre">Cynthia Torres</h4>
+                                <p class="nombre-2">Desarrollador web </p>
+                            </div>
+                        </div>
+
+                    </center>
+                </div>
+
+            </div>
+            <br>
+        </div>
+
+    </div>
+</div>
+{% endblock contenido %}

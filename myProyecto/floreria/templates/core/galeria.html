@@ -1,0 +1,137 @@
+{% extends "core/base.html" %}
+
+{% block titulo %}
+Florería petalos
+{% endblock titulo %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="section">
+    <div class="container">
+        <div class="section section-card-blog">
+            <div class="container">
+                <div class="row" style="height: 180px;">
+                    <div class="letra-areas">
+                        <h2>Catalogo de productos</h2>
+                        <div class="separator separator-danger">✻</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="section section-card-color">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                        <div class="card h-100">
+                            <img class="card-img-top img-fluid" src="{% static 'core/img/ramo_naranjo.png' %}">
+                            <div class="card-body">
+                                <h5 class="card-title">Sol de verano</h5>
+                            </div>
+
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Ramo de flores naranjas</li>
+
+                            </ul>
+
+                            <div class="card-footer card-link">
+                                <big>$ 1.990</big>
+                                <a href="{% url 'galeria' %}" class="btn btn-success float-right btn-sm">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                        <div class="card h-100">
+                            <img class="card-img-top img-fluid" src="{% static 'core/img/ramo_naranjo.png' %}">
+                            <div class="card-body">
+                                <h5 class="card-title">Sol de verano</h5>
+                            </div>
+
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Ramo de flores naranjas</li>
+
+                            </ul>
+
+                            <div class="card-footer card-link">
+                                <big>$ 1.990</big>
+                                <a href="{% url 'galeria' %}" class="btn btn-success float-right btn-sm">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                        <div class="card h-100">
+                            <img class="card-img-top img-fluid" src="{% static 'core/img/ramo_naranjo.png' %}">
+                            <div class="card-body">
+                                <h5 class="card-title">Sol de verano</h5>
+                            </div>
+
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Ramo de flores naranjas</li>
+
+                            </ul>
+
+                            <div class="card-footer card-link">
+                                <big>$ 1.990</big>
+                                <a href="{% url 'galeria' %}" class="btn btn-success float-right btn-sm">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+                        <div class="card h-100">
+                            <img class="card-img-top img-fluid" src="{% static 'core/img/ramo_naranjo.png' %}">
+                            <div class="card-body">
+                                <h5 class="card-title">Sol de verano</h5>
+                            </div>
+
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Ramo de flores naranjas</li>
+
+                            </ul>
+
+                            <div class="card-footer card-link">
+                                <big>$ 1.990</big>
+                                <a href="{% url 'galeria' %}" class="btn btn-success float-right btn-sm">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% for f in listaflores %}
+                    <div class="col-sm-6 col-md-4 col-lg-3 mt-4 flores">
+                        <div class="card h-100">
+                            <img class="card-img-top img-fluid" src="{{ f.fotografia.url }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{f.name}}</h5>
+                            </div>
+
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">{{f.descripcion}}</li>
+
+                            </ul>
+
+                            <div class="card-footer card-link">
+                                <big>{{f.valor}}</big>
+                                <a href="{% url 'agregar_carro' f.name %}" class="btn btn-success float-right btn-sm"
+                                    style="margin-left: 5px;">Comprar</a>
+                                <a href="{% url 'eliminar_flores' f.name %}" class="btn btn-success float-right btn-sm"
+                                    style="background-color: crimson; border-color: crimson;">Eliminar</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <h5>{{msg}}</h5>
+
+                </div>
+
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock contenido %}

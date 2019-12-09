@@ -1,0 +1,218 @@
+/*------- menubar -------*/
+.menu
+{
+   font-family: Georgia, 'Times New Roman', Times, serif;
+   background-color: #ce2e6c;
+}
+
+.bienvenido
+{
+    background-color: #f0decb; 
+}
+
+.letra
+{
+    text-align: center;
+    color: rgb(94, 12, 97);
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/*------ menuHome ------*/
+
+.letra-areas
+{
+    margin-top: 30px;
+    margin-bottom: 25px;
+    min-height: 32px;
+    margin: 0 auto 10px;
+    padding: 30px 0px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.separator-danger 
+{
+    color: #e78b90;
+}
+
+.separator-danger:before, .separator-danger:after 
+{
+    border-color: #e78b90;
+}
+
+.separator
+{
+    margin: 0 auto 20px;
+    max-width: 240px;
+    text-align: center;
+    position: relative;
+}
+
+.separator:before 
+{
+    float: left;
+}
+
+.separator:before
+{
+    display: block;
+    width: 40%;
+    content: " ";
+    margin-top: 10px;
+    border: 1px solid  #ce2e6c;
+}
+
+.separator:after {
+    float: right;
+}
+
+.separator:after {
+    display: block;
+    width: 40%;
+    content: " ";
+    margin-top: 10px;
+    border: 1px solid  #ce2e6c;
+}
+
+
+/*---- estilo iconos ----*/
+
+.info-icon {
+    text-align: center;
+}
+
+.icon 
+{
+    font-size: 62px;
+    line-height: 66px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.text-danger {
+    color: #ce2e6c !important;
+}
+
+.descripcion
+{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0px;
+    margin-bottom: 0;
+}
+
+.footer_area {
+	padding:40px 20px;
+	position: relative;
+	color: #fff;
+	z-index: 100;
+	background: #ce2e6c;
+	word-break: break-all;
+    word-wrap: break-word;
+}
+
+.single_ftr form{
+	margin-top: 8px;
+}
+.single_ftr p{
+	margin-bottom: 10px;
+}
+
+.sf_title{
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 17px;
+    margin-top: 0px;
+	margin-bottom: 15px;
+}
+
+.section-card-blog 
+{
+    background-color: #ffc6c7;
+}
+
+.section-card-color
+{
+    background-color: #faeee7;
+}
+
+.section 
+{
+    position: relative;
+}
+
+/*---------------------- control --------------------------*/
+
+.info 
+{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 10px;
+    text-align: center;
+}
+
+/*----- sobre nosotros ----*/
+
+.arreglos
+{
+    margin-top: 30px;
+
+}
+
+.arreglo
+{
+    margin-top: 30px;
+    text-align: center;
+    font-size:  20px;
+    font-family: 'Times New Roman', Times, serif
+}
+
+.nombre
+{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.nombre-2
+{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.dropdown-toggle::after { border: none; }
+
+/*--------- botones login---------*/
+
+.boton-enviar
+{
+    background-color: #ce2e6c; 
+    border-color: #ce2e6c;
+    margin-bottom: 5px;
+}
+
+.boton-facebook
+{
+
+   background-color: #3b5998;
+   border-color: #3b5998;
+   margin: 4px;
+}
+
+.icon-fa
+{
+    margin-right: 15px;
+}
+
+
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}

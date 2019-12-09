@@ -1,0 +1,115 @@
+{% extends "core/base.html" %}
+
+{% block titulo %}
+Florería petalos
+{% endblock titulo %}
+
+{% load static %}
+
+{% block contenido %}
+<div class="section">
+    <div class="container">
+        <div class="section section-card-blog">
+            <div class="container">
+                <div class="row" style="height: 180px;">
+                    <div class="letra-areas">
+                        <h2>Contáctenos</h2>
+                        <div class="separator separator-danger">✻</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="{% static 'core/js/usuario.js' %}"></script>
+
+        <script>
+            var arreglo = new Array();
+            var indice = 0;
+            function grabar() {
+
+                var nombre = document.getElementById("txtNombre").value;
+                var correo = document.getElementById("txtCorreo").value;
+                var msj = document.getElementById("txtMsj").value;
+
+                usu = new usuario();
+                usu.setNombre(nombre);
+                usu.setCorreo(correo);
+                usu.setMensaje(msj);
+                arreglo[indice] = JSON.stringify(usu);
+
+                if (typeof (Storage) == 'undefined') {
+                    alert('no puedo almacenar en localstorage');
+                }
+
+                if (nombre == '', correo == '', msj == '') {
+                    alert("No se pueden alamacenar espacios en blanco");
+                    return false;
+                } else {
+                    alert('puedo almacenar en localstorage');
+                    localStorage.setItem('registros', arreglo);
+                    alert('almaceno en localstorege');
+                }
+
+
+                indice++;
+                alert("Usuario Grabado")
+
+            }
+
+
+            function limpiar() {
+                document.getElementById("txtNombre").value = "";
+                document.getElementById("txtCorreo").value = "";
+                document.getElementById("txtMsj").value = "";
+
+
+
+
+            }
+
+        </script>
+
+        <div class="section section-card-color">
+            <div class="container">
+                <br>
+                <form class="needs-validation" novalidate>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="validationTooltip02">Nombre</label>
+                            <input type="text" name="txtNombre" class="form-control" placeholder="Nombre" id="txtNombre" value="" required>
+                            <div class="valid-tooltip">
+                                Looks good!
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="validationTooltip02">Correo</label>
+                            <input type="text" name="txtCorreo" class="form-control" placeholder="Correo" id="txtCorreo" value="" required>
+                            <div class="valid-tooltip">
+                                Looks good!
+                            </div>
+
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="validationTooltip02">Mensaje</label>
+                            <input type="text" name="txtMsj" class="form-control" placeholder="Mensaje" id="txtMsj"  value="" required>
+                            <div class="valid-tooltip">
+                                Looks good!
+                            </div>
+                        </div>
+
+                        <br>
+                    </div>
+                    <button class="btn btn-secondary" type="button" value="Grabar"
+                        onclick="grabar();limpiar()">Grabar</button>
+
+                </form>
+                <div id="respuesta"></div>
+            </div>
+
+            <br>
+
+        </div>
+    </div>
+    {% endblock contenido %}

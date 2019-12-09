@@ -1,0 +1,91 @@
+{% extends "core/base.html" %}
+
+{% block titulo %}
+Florería petalos
+{% endblock titulo %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="section">
+    <div class="container">
+        <div class="section section-card-blog">
+            <div class="container">
+                <div class="row" style="height: 180px;">
+                    <div class="letra-areas">
+                        <h2>Ingreso de flores</h2>
+                        <div class="separator separator-danger">✻</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section section-card-color">
+            <div class="container">
+                <br>
+                <form id="formulario" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Nombre</label>
+                            <input type="text" name="txtNombre" class="form-control" placeholder="Nombre del producto">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Valor</label>
+                            <input type="number" name="txtValor" class="form-control" placeholder="Valor del producto">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <textarea name="txtDescripcion" class="form-control"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Stock</label>
+                            <input type="number" name="txtStock" class="form-control" placeholder="Stock del producto">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label>Estado</label>
+                            <select name="cboEstado" class="form-control">
+                                {% for datos in lista %}
+                                <option>{{datos.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Fotografía</label>
+                            <input type="file" name="txtImagen" class="form-control-file">
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <button type="submit" class="btn btn-secondary">Grabar</button>
+                </form>
+
+                <br>
+
+                {% if sw %}
+                <script>
+                    setTimeout(function () {
+                        document.getElementById("mensaje").innerHTML = ''
+                    }, 2000)
+                </script>
+                <div id="mensaje">
+                    <b>{{msg}}</b>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock contenido %}

@@ -1,0 +1,83 @@
+{% extends "core/base.html" %}
+
+{% block titulo %}
+Acceso
+{% endblock titulo %}
+
+{% block contenido %}
+
+
+<div class="section">
+    <div class="container">
+        <center>
+            <div class="section section-card-color">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <form class="form" name="formulario" method="POST" action="{% url 'login_iniciar' %}">
+                                {% csrf_token %}
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-header p-0">
+                                            <div class="text-white text-center py-2"
+                                                style="background-color: #ffffff; border-color: #ffffff;">
+                                                <img src="https://www.floreriapetalos.cl/wp-content/uploads/2017/06/logo-floreria.png">
+                                            </div>
+                                        </div>
+
+                                        <br>
+
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                            </div>
+
+                                            <input type="text" name="txtUser" class="form-control"
+                                                placeholder="Nombre" />
+                                        </div>
+                                        <br />
+
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                                            </div>
+                                            <input type="Password" name="txtPass" class="form-control"
+                                                placeholder="Contraseña" />
+                                        </div>
+
+                                        <br>
+                                        <div>
+                                            <input type="submit" value="Enviar"
+                                                class="btn btn-danger btn-block rounded-0 boton-enviar">
+                                        </div>
+
+                                        <div class="form-group forget-password" >
+                                            <a href="#" style="text-decoration: none;">Recuperar Contraseña</a>
+                                        </div>
+
+                                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
+                                        </div>
+
+                                        <div>
+                                            <a href="{% url 'social:begin' 'facebook' %}" class="btn btn-primary btn-block rounded-0 boton-facebook">
+                                                <i class="fab fa-facebook-f icon-fa"></i>Entrar con Facebook
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+        </center>
+    </div>
+
+
+</div>
+
+{% endblock contenido %}
