@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django_static_fontawesome",
     'social_django',
     'rest_framework',
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -141,3 +142,5 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL='/'
 # Claves de la app de facebook
 SOCIAL_AUTH_FACEBOOK_KEY='526266454901273'
 SOCIAL_AUTH_FACEBOOK_SECRET='2d2677a2382da9128e90c217cc41e2e4'
+
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'serviceworker.js')

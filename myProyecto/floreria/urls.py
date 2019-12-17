@@ -22,4 +22,5 @@ urlpatterns = [
     path('carro_menos/<id>/',carro_compras_menos,name='carro_menos'),
     path('grabar_carro/',grabar_carro,name='grabar_carro'),
     path('api/',include(router.urls)),
+    path('',include('pwa.urls')),
 ]

@@ -8,7 +8,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="google-signin-client_id" content="561377024989-pfvkv022bl5f0ruauhtqjpjtbd37r296.apps.googleusercontent.com">
     <link href="{% static 'core/css/bootstrap.min.css'   %}" type="text/css" rel="stylesheet">
     <link href="{% static 'core/css/fontawesome.min.css' %}" type="text/css" rel="stylesheet">
     <link href="{% static 'core/css/estilos.css'          %}" type="text/css" rel="stylesheet">
@@ -20,6 +19,11 @@
         {% endblock titulo %}
     </title>
 
+    {% load pwa %}
+
+    {% progressive_web_app_meta %}
+
+
 </head>
 
 <body>
@@ -28,8 +32,7 @@
         <script src="{% static 'core/js/jquery-3.4.1.js' %}"></script>
         <script src="{% static 'core/js/all.js' %}"></script>
         <script src="{% static 'core/js/bootstrap.min.js' %}"></script>
-        <script src="{% static 'core/js/fontawsome.min.js' %}"></script>
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="{% static 'core/js/fontawesome.min.js' %}"></script>
 
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light  menu">
@@ -68,11 +71,8 @@
                             <a class="nav-link" style="color: aliceblue" href="{% url 'sobreNosotros' %}">Sobre
                                 nosotros</a>
                         </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" style="color: aliceblue" href="">Ubicación</a>
-                        </li>
-
+                        
+                        <br>
                         <li>
                             <b>{{user.username}}</b>
                         </li>
