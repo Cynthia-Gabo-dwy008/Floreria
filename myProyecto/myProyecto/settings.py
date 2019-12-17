@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'floreria.apps.FloreriaConfig',
     "django_static_fontawesome",
     'social_django',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

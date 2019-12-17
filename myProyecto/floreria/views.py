@@ -8,6 +8,11 @@ from django.contrib.auth.decorators import login_required
 import datetime;
 from .clases import elemento
 
+#rest_framework 
+
+from rest_framework import viewsets
+from .serializers import FloresSerializer
+
 
 @login_required(login_url='/login/')
 def home(request):
@@ -207,3 +212,9 @@ def formulario(request):
 
 def isset(variable):
 	return variable in locals() or variable in globals()
+
+#-------------------------------------------------------------------------------------#
+
+class FloresViewSet(viewsets.ModelViewSet):
+    queryset = Flores.objects.all()
+    serializer_class = FloresSerializer
