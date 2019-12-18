@@ -5,4 +5,4 @@ class FloresSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Flores
-        fields = ['name', 'valor', 'descripcion', 'estado','stock']
+        fields = ['name', 'valor', 'descripcion', 'estado','stock','fotografia']

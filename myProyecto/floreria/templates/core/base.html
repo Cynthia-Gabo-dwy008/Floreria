@@ -24,6 +24,93 @@
     {% progressive_web_app_meta %}
 
 
+    
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-messaging.js"></script>
+    
+    <script>
+        
+        var firebaseConfig = {
+            apiKey: "AIzaSyBb7qXVSvPTrOpe0hkprvWVZSS6yVKNHbc",
+            authDomain: "petalos-260801.firebaseapp.com",
+            databaseURL: "https://petalos-260801.firebaseio.com",
+            projectId: "petalos-260801",
+            storageBucket: "petalos-260801.appspot.com",
+            messagingSenderId: "55127486911",
+            appId: "1:55127486911:web:39c36ef3d0a637bccbb10a",
+            measurementId: "G-F7WRPK98P9"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        //firebase.analytics();
+
+        let messaging = firebase.messaging();
+
+        //enlace serviceWorker.
+        navigator.serviceWorker
+        .register('./serviceworker.js')
+        .then(function(register){
+
+            messaging.useServiceWorker(register);
+
+            //solicitar permiso
+            messaging.requestPermission()
+            .then(function(){
+                console.log("Ha aceptado recibir notificaciones")
+
+                return messaging.getToken();
+            })
+            .then(function(token){
+                console.log(token);
+
+                //enviar token a django
+
+                fetch('/guardar-token/',{
+                    method:'post',
+                    headers:{
+                        'Content-Type':'application/json',
+                        'Accept':'application/json'
+                    },
+                    body:JSON.stringify({
+                        'token':token
+                    })
+                    .then(function(resultado){
+                        console.log("ha guardado el token")
+                    })
+                    .catch(function(e){
+                        console.log("no se ha guardado el token")
+                    })
+                })
+            })
+            .catch(function(e)
+            {
+               console.log("No ha aceptado recibir notificaciones")
+            })
+
+        })
+
+
+        //programar exepciones
+
+        messaging.onMessage(function(payload){
+            console.log("ha llegado la notificacion")
+
+            let data = payload;
+            console.log(data);
+
+            let title = payload.Notification.title;
+
+            let options = {
+                body:payload.Notification.body,
+                icon:payload.Notification.icon
+            }
+
+            let mensaje = new Notification(title, options);
+        });
+
+    </script>
+
+
 </head>
 
 <body>
@@ -71,7 +158,7 @@
                             <a class="nav-link" style="color: aliceblue" href="{% url 'sobreNosotros' %}">Sobre
                                 nosotros</a>
                         </li>
-                        
+
                         <br>
                         <li>
                             <b>{{user.username}}</b>
@@ -89,7 +176,8 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                     <a class="dropdown-item" href="{% url 'login' %}">Ingresar</a>
-                                    <a class="dropdown-item" href="{% url 'cerrar_session' %}">Cerrar {{user.username }}</a>
+                                    <a class="dropdown-item" href="{% url 'cerrar_session' %}">Cerrar
+                                        {{user.username }}</a>
                                 </div>
                             </div>
 
@@ -101,7 +189,7 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                                     <a class="dropdown-item" href="{% url 'carro' %}">Ver carro</a>
-                                    
+
                                 </div>
                             </div>
                         </li>

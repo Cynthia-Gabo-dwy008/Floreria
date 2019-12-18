@@ -23,4 +23,5 @@ urlpatterns = [
     path('grabar_carro/',grabar_carro,name='grabar_carro'),
     path('api/',include(router.urls)),
     path('',include('pwa.urls')),
+    path('guardar-token/',guardar_token, name='guardar_token'),
 ]
